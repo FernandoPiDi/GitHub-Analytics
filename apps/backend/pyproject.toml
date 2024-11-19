@@ -1,0 +1,89 @@
+[tool.coverage.run]
+branch = true
+source = ["src"]
+
+[tool.coverage.report]
+exclude_lines = ['if TYPE_CHECKING:']
+show_missing = true
+
+[tool.pytest.ini_options]
+addopts = "--cov --cov-report html:'../../coverage/apps/ai/html' --cov-report xml:'../../coverage/apps/ai/coverage.xml' --html='../../reports/apps/ai/unittests/html/index.html' --junitxml='../../reports/apps/ai/unittests/junit.xml'"
+
+[tool.poetry]
+name = "ai"
+version = "1.0.0"
+description = "API to execute complex AI Agents for code generation"
+authors = []
+license = 'Proprietary'
+readme = 'README.md'
+
+[[tool.poetry.packages]]
+include = "src"
+
+[tool.poetry.dependencies]
+python = ">=3.11,<3.13"
+langchain = "^0.3.7"
+langgraph = "^0.2.44"
+fastapi = "^0.115.4"
+langchain-openai = "^0.2.5"
+websockets = "^13.1"
+structlog = "^24.4.0"
+uvicorn = { extras = ["standard"], version = "^0.32.0" }
+langchain-experimental = "^0.3.3"
+pandas = "^2.2.3"
+
+[tool.poetry.group.dev.dependencies]
+autopep8 = "^2.3.1"
+ruff = "^0.7.2"
+pytest = "^8.3.3"
+pytest-sugar = "^1.0.0"
+pytest-cov = "^6.0.0"
+pytest-html = "^4.1.1"
+jupyterlab = "^4.3.0"
+pyright = "^1.1.387"
+pydantic = "^2.9.2"
+pydantic-settings = "^2.6.1"
+ariadne-codegen = "^0.14.0"
+python-dotenv = "^1.0.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+exclude = [".ruff_cache", ".svn", ".tox", ".venv", "dist", "gql"]
+
+line-length = 88
+indent-width = 4
+
+[tool.ruff.lint]
+select = [
+  # pycodestyle
+  "E",
+  # Pyflakes
+  "F",
+  # pyupgrade
+  "UP",
+  # flake8-bugbear
+  "B",
+  # flake8-simplify
+  "SIM",
+  # isort
+  "I",
+]
+ignore = []
+
+fixable = ["ALL"]
+unfixable = []
+
+[tool.ariadne-codegen]
+remote_schema_headers = { "Authorization" = "$CODEGEN_GH_AUTH" }
+remote_schema_url = "https://api.github.com/graphql"
+queries_path = "./src/queries/"
+target_package_path = "./src/services/"
+target_package_name = "gql"
+async_client = false
+
+[tool.pyright]
+typeCheckingMode = "basic"
+pythonVersion = "3.12"
