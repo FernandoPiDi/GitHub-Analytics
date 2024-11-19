@@ -84,4 +84,4 @@ You can find me on:
 
 - LinkedIn: [Luis Duvan Fernando Pinto Diaz](https://www.linkedin.com/in/duvanfernandopintodiaz/)
 - Email: duvanpidi@hotmail.com
->>>>>>> c1c847d (feat(project): GitHub Analytics project setup)
+
