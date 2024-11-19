@@ -4,8 +4,7 @@ A monorepo project built with Nx, containing a FastAPI backend and React fronten
 
 Este proyecto consta de 4 agentes un supervisor, un arquitecto un analista y un desarrollador 
 
-el supervisor es el encargado de supervisar u orqeustar el funcionamiento de los otros 3 agentes
-el arquitecto
+el supervisor es el encargado de supervisar u orquestar el funcionamiento de los otros 3 agentes
 
 ## Tech Stack
 
